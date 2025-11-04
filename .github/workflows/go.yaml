@@ -22,8 +22,9 @@ jobs:
       with:
         go-version: ${{ matrix.go-version }}
     - name: Test with Go
-      run: go test -json > TestResults-${{ matrix.go-version }}.json
+      run: go test -json ./... > TestResults-${{ matrix.go-version }}.json
     - name: Upload Go test results
+      if: ${{ !env.ACT }} # skip during local actions testing
       uses: actions/upload-artifact@v4
       with:
         name: Go-results-${{ matrix.go-version }}
