@@ -12,13 +12,14 @@ import (
 )
 
 type OTEL struct {
+	Operation  string
 	ServerName string
 }
 
 func (mw OTEL) Handler() func(next http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return Chain{
-			otelhttp.NewMiddleware("",
+			otelhttp.NewMiddleware(mw.Operation,
 				otelhttp.WithSpanNameFormatter(mw.spanNameFormatter),
 				otelhttp.WithServerName(mw.ServerName),
 			),
