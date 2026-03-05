@@ -2,11 +2,8 @@ package httpservermw
 
 import (
 	"net/http"
-	"strings"
 
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
-	"go.opentelemetry.io/otel/attribute"
-	semconv "go.opentelemetry.io/otel/semconv/v1.39.0"
 	"go.opentelemetry.io/otel/trace"
 
 	httpheader "github.com/gaiaz-iusipov/go-common/http/header"
@@ -21,9 +18,9 @@ func (mw OTEL) Handler() func(next http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return Chain{
 			otelhttp.NewMiddleware(mw.Operation,
+				otelhttp.WithMetricRouteAttribute(),
 				otelhttp.WithSpanNameFormatter(mw.spanNameFormatter),
 				otelhttp.WithServerName(mw.ServerName),
-				otelhttp.WithMetricAttributesFn(mw.metricAttributesFn),
 			),
 			mw.exportTraceID,
 		}.Handle(next)
@@ -47,11 +44,4 @@ func (OTEL) spanNameFormatter(operation string, req *http.Request) string {
 		return req.Pattern
 	}
 	return operation + " " + req.Pattern
-}
-
-func (OTEL) metricAttributesFn(req *http.Request) []attribute.KeyValue {
-	if idx := strings.IndexByte(req.Pattern, '/'); idx >= 0 {
-		return []attribute.KeyValue{semconv.HTTPRoute(req.Pattern[idx:])}
-	}
-	return nil
 }

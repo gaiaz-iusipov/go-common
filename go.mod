@@ -27,3 +27,5 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260226221140-a57be14db171 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 )
+
+replace go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.66.0 => github.com/gaiaz-iusipov/opentelemetry-go-contrib/instrumentation/net/http/otelhttp v0.0.0-20260304062919-3a1d5f29a1a6

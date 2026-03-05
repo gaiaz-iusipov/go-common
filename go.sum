@@ -8,6 +8,8 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/felixge/httpsnoop v1.0.4 h1:NFTV2Zj1bL4mc9sqWACXbQFVBBg2W3GPvqp8/ESS2Wg=
 github.com/felixge/httpsnoop v1.0.4/go.mod h1:m8KPJKqk1gH5J9DgRY2ASl2lWCfGKXixSwevea8zH2U=
+github.com/gaiaz-iusipov/opentelemetry-go-contrib/instrumentation/net/http/otelhttp v0.0.0-20260304062919-3a1d5f29a1a6 h1:vt8OcNaaMISYd9jsJuFyfb/uZp7i97/2kM+f0zUNbaw=
+github.com/gaiaz-iusipov/opentelemetry-go-contrib/instrumentation/net/http/otelhttp v0.0.0-20260304062919-3a1d5f29a1a6/go.mod h1:V9kdiKzwqB4LSuL3lMyPt9c/dh8L9NO+0C0VzjpV66Y=
 github.com/go-logr/logr v1.2.2/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=
 github.com/go-logr/logr v1.4.3 h1:CjnDlHq8ikf6E492q6eKboGOC0T8CDaOvkHCIg8idEI=
 github.com/go-logr/logr v1.4.3/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
@@ -31,8 +33,6 @@ go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.6
 go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.66.0/go.mod h1:pdhNtM9C4H5fRdrnwO7NjxzQWhKSSxCHk/KluVqDVC0=
 go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace v0.66.0 h1:U++6AfUpXXSILim4iH6Jb2oeK/mp7J4lNzzyO8Cx4Zw=
 go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace v0.66.0/go.mod h1:HVNUDNMGMeykut/2GZ++AZjglCqew/+Hf4lxRVqFFxQ=
-go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.66.0 h1:PnV4kVnw0zOmwwFkAzCN5O07fw1YOIQor120zrh0AVo=
-go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.66.0/go.mod h1:ofAwF4uinaf8SXdVzzbL4OsxJ3VfeEg3f/F6CeF49/Y=
 go.opentelemetry.io/otel v1.41.0 h1:YlEwVsGAlCvczDILpUXpIpPSL/VPugt7zHThEMLce1c=
 go.opentelemetry.io/otel v1.41.0/go.mod h1:Yt4UwgEKeT05QbLwbyHXEwhnjxNO6D8L5PQP51/46dE=
 go.opentelemetry.io/otel/metric v1.41.0 h1:rFnDcs4gRzBcsO9tS8LCpgR0dxg4aaxWlJxCno7JlTQ=
