@@ -17,12 +17,13 @@ func Wrap(err error, code int) error {
 }
 
 func Unwrap(err error) int {
-	var target wrappedError
-	if errors.As(err, &target) {
+	if target, ok := errors.AsType[wrappedError](err); ok {
 		return target.Code
 	}
 	return http.StatusInternalServerError
 }
+
+var _ error = (*wrappedError)(nil)
 
 type wrappedError struct {
 	Err  error
