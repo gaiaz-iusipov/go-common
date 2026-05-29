@@ -12,7 +12,6 @@ var defaultConfig = config{
 	otelOpts: []otelhttp.Option{
 		otelhttp.WithSpanNameFormatter(spanNameFormatter),
 		otelhttp.WithClientTrace(clientTrace),
-		otelhttp.WithMetricAttributesFn(metricAttributesFn),
 	},
 }
 
