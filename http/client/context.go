@@ -12,9 +12,9 @@ type ctxKey struct{}
 func WithRequestName(ctx context.Context, requestName string) context.Context {
 	ctx = context.WithValue(ctx, ctxKey{}, requestName)
 
-	labeler, found := otelhttp.LabelerFromContext(ctx)
+	labeler, found := otelhttp.ClientLabelerFromContext(ctx)
 	if !found {
-		ctx = otelhttp.ContextWithLabeler(ctx, labeler)
+		ctx = otelhttp.ContextWithClientLabeler(ctx, labeler)
 	}
 	labeler.Add(attribute.String("http.request_name", requestName))
 
