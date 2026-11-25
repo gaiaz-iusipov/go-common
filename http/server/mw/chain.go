@@ -14,6 +14,8 @@ func (c Chain) Handle(handler http.Handler) http.Handler {
 	return handler
 }
 
-func (c Chain) HandleFunc(handler func(http.ResponseWriter, *http.Request)) http.Handler {
-	return c.Handle(http.HandlerFunc(handler))
+func (c Chain) HandleFunc(handler http.HandlerFunc) http.HandlerFunc {
+	return func(rw http.ResponseWriter, req *http.Request) {
+		c.Handle(handler).ServeHTTP(rw, req)
+	}
 }
